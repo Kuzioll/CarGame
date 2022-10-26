@@ -58,11 +58,69 @@ body {
   background-image: url(./car\ player.svg);
 }
 
+/* bot one */
+
 .game-window-bot-car-1 {
   position: absolute;
   top: -10%;
-  left: 70%;
+  left: 60%;
   height: 8rem;
   width: 5rem;
   background-image: url(./car\ bot\ 1.svg);
+}
+
+.game-window-bot-car-1-active {
+  animation: bot1 3s 2s linear infinite;
+}
+@keyframes bot1 {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 55%;
+  }
+}
+
+/* bot two */
+.game-window-bot-car-2 {
+  position: absolute;
+  top: -20%;
+  left: 9%;
+  height: 8rem;
+  width: 5rem;
+  background-image: url(./car\ bot\ 2.svg);
+}
+
+.game-window-bot-car-2-active {
+  animation: bot2 4s 2s linear infinite;
+}
+@keyframes bot2 {
+  0% {
+    top: -20%;
+  }
+  100% {
+    top: 55%;
+  }
+}
+
+/* bot three */
+.game-window-bot-car-3 {
+  position: absolute;
+  top: -15%;
+  left: 40%;
+  height: 8rem;
+  width: 5rem;
+  background-image: url(./car\ bot\ 3.svg);
+}
+
+.game-window-bot-car-3-active {
+  animation: bot3 4s 20s linear infinite;
+}
+@keyframes bot3 {
+  0% {
+    top: -15%;
+  }
+  100% {
+    top: 55%;
+  }
 }
