@@ -14,13 +14,67 @@ gameStart.addEventListener("click", () => {
   botCartwo.classList.add("game-window-bot-car-2-active");
   botCarthree.classList.add("game-window-bot-car-3-active");
 
+  // check colison
+  setInterval(function () {
+    let aRect = userCar.getBoundingClientRect();
+    let bRect = botCarone.getBoundingClientRect();
+    let cRect = botCartwo.getBoundingClientRect();
+    let dRect = botCarthree.getBoundingClientRect();
+
+    if (
+      aRect.left < bRect.left + bRect.width &&
+      aRect.left + aRect.width > bRect.left &&
+      aRect.top < bRect.top + bRect.width &&
+      aRect.width + aRect.top > bRect.top
+    ) {
+      window.alert("stop");
+      gameWindow.classList.remove("game-window-player-active");
+      botCarone.classList.remove("game-window-bot-car-1-active");
+      botCartwo.classList.remove("game-window-bot-car-2-active");
+      botCarthree.classList.remove("game-window-bot-car-3-active");
+      clearInterval;
+    }
+
+    if (
+      aRect.left < cRect.left + cRect.width &&
+      aRect.left + aRect.width > cRect.left &&
+      aRect.top < cRect.top + cRect.width &&
+      aRect.width + aRect.top > cRect.top
+    ) {
+      window.alert("stop");
+      gameWindow.classList.remove("game-window-player-active");
+      botCarone.classList.remove("game-window-bot-car-1-active");
+      botCartwo.classList.remove("game-window-bot-car-2-active");
+      botCarthree.classList.remove("game-window-bot-car-3-active");
+      clearInterval;
+    }
+
+    if (
+      aRect.left < dRect.left + dRect.width &&
+      aRect.left + aRect.width > dRect.left &&
+      aRect.top < dRect.top + dRect.width &&
+      aRect.width + aRect.top > dRect.top
+    ) {
+      window.alert("stop");
+      gameWindow.classList.remove("game-window-player-active");
+      botCarone.classList.remove("game-window-bot-car-1-active");
+      botCartwo.classList.remove("game-window-bot-car-2-active");
+      botCarthree.classList.remove("game-window-bot-car-3-active");
+      clearInterval;
+    }
+  }, 10);
+
   //Player car movment.
   document.addEventListener("keydown", (event) => {
     if (event.keyCode === 39) {
       if (startNumber === 75) {
         return;
       } else {
-        startNumber = startNumber + 5;
+        startNumber++;
+        startNumber++;
+        startNumber++;
+        startNumber++;
+        startNumber++;
         userCar.style.left = startNumber + "%";
       }
     }
@@ -29,29 +83,13 @@ gameStart.addEventListener("click", () => {
       if (startNumber === 0) {
         return;
       } else {
-        startNumber = startNumber - 5;
+        startNumber--;
+        startNumber--;
+        startNumber--;
+        startNumber--;
+        startNumber--;
         userCar.style.left = startNumber + "%";
       }
     }
-
-    if (event.keyCode === 38) {
-      if (topNumber === 0) {
-        return;
-      } else {
-        topNumber = topNumber - 5;
-        userCar.style.top = topNumber + "%";
-      }
-    }
-
-    if (event.keyCode === 40) {
-      if (topNumber === 40) {
-        return;
-      } else {
-        topNumber = topNumber + 5;
-        userCar.style.top = topNumber + "%";
-      }
-    }
   });
-
-  //bot car movment
 });
