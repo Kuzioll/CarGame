@@ -7,6 +7,21 @@ const botCarone = document.querySelector(".game-window-bot-car-1");
 const botCartwo = document.querySelector(".game-window-bot-car-2");
 const botCarthree = document.querySelector(".game-window-bot-car-3");
 
+//Mobile buttons
+
+const arrowl = document
+  .querySelector(".arrow-left-p")
+  .addEventListener("click", () => {
+    document.dispatchEvent(new KeyboardEvent("keydown", { keyCode: 37 }));
+  });
+
+const arrowr = document
+  .querySelector(".arrow-right-p")
+  .addEventListener("click", () => {
+    console.log("test");
+    document.dispatchEvent(new KeyboardEvent("keydown", { keyCode: 39 }));
+  });
+
 //lunch game
 gameStart.addEventListener("click", () => {
   gameWindow.classList.add("game-window-player-active");
@@ -27,12 +42,13 @@ gameStart.addEventListener("click", () => {
       aRect.top < bRect.top + bRect.width &&
       aRect.width + aRect.top > bRect.top
     ) {
-      window.alert("stop");
+      window.alert("You lose!");
       gameWindow.classList.remove("game-window-player-active");
       botCarone.classList.remove("game-window-bot-car-1-active");
       botCartwo.classList.remove("game-window-bot-car-2-active");
       botCarthree.classList.remove("game-window-bot-car-3-active");
       clearInterval;
+      location.reload();
     }
 
     if (
@@ -41,12 +57,13 @@ gameStart.addEventListener("click", () => {
       aRect.top < cRect.top + cRect.width &&
       aRect.width + aRect.top > cRect.top
     ) {
-      window.alert("stop");
+      window.alert("You lose!");
       gameWindow.classList.remove("game-window-player-active");
       botCarone.classList.remove("game-window-bot-car-1-active");
       botCartwo.classList.remove("game-window-bot-car-2-active");
       botCarthree.classList.remove("game-window-bot-car-3-active");
       clearInterval;
+      location.reload();
     }
 
     if (
@@ -55,14 +72,24 @@ gameStart.addEventListener("click", () => {
       aRect.top < dRect.top + dRect.width &&
       aRect.width + aRect.top > dRect.top
     ) {
-      window.alert("stop");
+      window.alert("You lose!");
       gameWindow.classList.remove("game-window-player-active");
       botCarone.classList.remove("game-window-bot-car-1-active");
       botCartwo.classList.remove("game-window-bot-car-2-active");
       botCarthree.classList.remove("game-window-bot-car-3-active");
       clearInterval;
+      location.reload();
     }
   }, 10);
+
+  setTimeout(() => {
+    gameWindow.classList.remove("game-window-player-active");
+    botCarone.classList.remove("game-window-bot-car-1-active");
+    botCartwo.classList.remove("game-window-bot-car-2-active");
+    botCarthree.classList.remove("game-window-bot-car-3-active");
+    clearInterval;
+    window.alert("Congratulations you win!");
+  }, 60000);
 
   //Player car movment.
   document.addEventListener("keydown", (event) => {
@@ -93,3 +120,5 @@ gameStart.addEventListener("click", () => {
     }
   });
 });
+
+let red;
